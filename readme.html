@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi Payment PHP</title>
+  </head>
+  <body>
+    <h3>Multi Payment PHP</h3>
+    <p>
+      Merupakan backend untuk managemen berbagai macam payment gateway dengan
+      mengirimkan request body serta method sesuai payment gateway masing2 dan
+      mengembalikan response sesuai.
+    </p>
+    <b>Contoh Request :</b>
+    <br>
+    <br>
+    <b>XENDIT INVOICE</b>
+    <br>
+    <code>
+      
+        { 
+        "website_id": 1, 
+        "payment_gateway": 
+        "xendit", "payment_method":"invoice", 
+        "callback_url": "https://localhost.com/your_callback", 
+        "body": { 
+            "external_id": "ORDER-123456", 
+            "amount": 150000 
+            } 
+        }
+    </code>
+<br><br>
+<b>XENDIT DANA</b><br>
+    <code>
+        { 
+        "website_id": 1, 
+        "payment_gateway": "xendit", 
+        "payment_method": "DANA",
+        "callback_url": "https://localhost.com/your_callback", 
+            "body": {
+            "reference_id": "order-id-123", 
+            "currency": "IDR", 
+            "amount": 25000,
+            "checkout_method": "ONE_TIME_PAYMENT", 
+            "channel_code": "ID_DANA",
+            "channel_properties": { 
+                "success_redirect_url":
+                "https://redirect.me/payment" 
+                } 
+            } 
+        }
+    </code>
+    <br>
+    <br>
+    <b>Required</b>
+    <ul>
+      <li>PHP >= 8.1</li>
+    </ul>
+    <b>Payment Gateway Tersedia</b>
+    <ul>
+      <li>XENDIT</li>
+      <li>MIDTRANS</li>
+    </ul>
+  </body>
+</html>
